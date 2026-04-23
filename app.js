@@ -10,11 +10,11 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use('/api/auth',          require('./src/routes/auth'));
-// app.use('/api/areas',         require('./routes/areas'));
-// app.use('/api/reports',       require('./routes/reports'));
-// app.use('/api/follows',       require('./routes/follows'));
-// app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/auth', require('./src/routes/auth'));
+app.use('/api/areas', require('./src/routes/areaRoutes'));
+app.use('/api/reports', require('./src/routes/reportRoutes'));
+app.use('/api/follows',  require('./src/routes/followRoutes'));
+app.use('/api/notifications', require('./src/routes/notificationRoutes'));
 
 
 app.get("/", (req, res) => {
