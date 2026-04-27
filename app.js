@@ -15,7 +15,7 @@ app.use('/api/areas', require('./src/routes/areaRoutes'));
 app.use('/api/reports', require('./src/routes/reportRoutes'));
 app.use('/api/follows',  require('./src/routes/followRoutes'));
 app.use('/api/notifications', require('./src/routes/notificationRoutes'));
-
+app.use('/api/insight',  require('./src/routes/insightRoutes'));
 
 app.get("/", (req, res) => {
   res.send("PowerPulse api running...");
