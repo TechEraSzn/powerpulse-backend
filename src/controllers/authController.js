@@ -4,7 +4,7 @@ const db = require('../config/db');
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, location } = req.body;
     if (!name || !email || !password)
       return res.status(400).json({ error: 'name, email and password are required' });
 
