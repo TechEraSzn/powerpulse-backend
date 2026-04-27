@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const predictionService = require('../service/predictionService');
 
 exports.insights = async (req, res) => {
   const { area_id } = req.query;
@@ -37,6 +38,7 @@ exports.insights = async (req, res) => {
        ORDER BY date ASC`,
       [area_id]
     );
+    const prediction = await predictionService.getPrediction(area_id);
 
     res.json({
       today_uptime_hours: parseFloat(todayRows[0].uptime_hours) || 0,
@@ -44,7 +46,7 @@ exports.insights = async (req, res) => {
         date: r.date,
         uptime_hours: parseFloat(r.uptime_hours) || 0
       })),
-      prediction: null // placeholder — we'll fill this next
+      prediction
     });
 
   } catch (err) {
