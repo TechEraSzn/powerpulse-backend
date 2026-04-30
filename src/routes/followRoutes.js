@@ -8,7 +8,7 @@ const {
 } = require('../controllers/followController');
 
 router.post('/', auth, followArea);
-router.delete('/:area_id', auth, unfollowArea);
+router.delete('/unfollow/:area_id', auth, unfollowArea);
 router.get('/', auth, getUserFollows);
 
 module.exports = router;
